@@ -1,0 +1,298 @@
+/* soft reset do CSS*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*corpo*/
+body {
+    background-image: url('../img/fundo-creditos-pinterest-unsplush.jpeg');
+    background-size: 100vw auto;
+    font-family: 'Roboto Slab', serif; /*fonte*/
+    height: 100vh;
+}
+
+/* se (if) a tela tiver pelo menos 400px vai carregar esses estilos */
+@media (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+/* se (if) breakpoint */
+@media (min-width: 1200px) {
+    body {
+        font-size: 20px;
+
+    }
+}
+
+header {
+    height: 100vh; /*centralização do nome*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*menu fixo no topo da tela*/  
+.menu {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+}
+  
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+}
+  
+.menu li {
+    list-style: none;
+    /*background-color: lawngreen; debbug*/
+}
+
+/*menu fixo no topo da tela*/
+.menu a {  
+    display: block;
+    padding: 10px 20px; /*borda/preenchimento da tela*/
+    transition: background-color 1s, color 1s;
+    /*background-color: lawngreen; debug*/
+}
+
+.menu a:active,
+.menu a:hover {
+    background-color:black;
+    color: white;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*animacao do titulo*/ /*ps: tentar fazer a animação de star wars*/
+.titulo {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0.5;
+    animation: ease-out 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+    from{
+        transform: scale(0.2) translateY(50vh);
+        opacity: 0.5; 
+    }
+    
+    to{
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/*titulo e subtitulo*/
+.site-subtitle,
+.site-title {
+    color: white;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: lighter;
+    /*para titulo e subtitulo*/
+}
+
+.site-title {
+    font-size: 4em;
+    line-height: 2em; /*espacamento de linha*/
+    /*font-family: 'DM Mono', monospace;*/
+}
+  
+.site-subtitle {
+    font-size: 1.8em;
+    /*font-family: 'DM Mono', monospace; */
+}
+/*reaproveitamento de classe*/
+.sobre,
+.contato,
+.portfolio {
+    padding: 2em;
+    min-height: 50vh;
+    color: white;
+    /*margin-left: auto;
+    margin-right: auto;
+    /*background-color: violet; /*debug*/
+}
+
+/*
+@media (min-width: 1200px) {
+    .sobre,
+    .contato,
+    .portfolio {
+        max-width: 1200px;
+    }
+}*/
+
+@media (min-width: 1200px) { /*para todas as classes container*/
+    .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*reaproveitamento de classe*/
+.sobre h2,
+.contato h2,
+.portfolio h2 {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 2em;
+    color: white;
+    margin-bottom: 2em;
+    text-align: center;
+    /*background-color: violet; /*debug*/
+}
+
+.sobre p {
+    color: white;
+    text-indent: 2em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+.sobre a {
+    color:white;
+    text-decoration: none;
+}
+/* exemplo*/
+.sobre a:hover {
+    /*background-color: black;*/
+    text-decoration: underline;
+}
+
+.sobre .avatar {
+    float: left;
+    margin-right: 1em;
+}
+
+.sobre .avatar img {
+    border-radius: 15%;
+    height: 250px;
+    width: 200px;
+    /*clip-path: polygon(50% 0%, 0% 100%, 100% 100%); fazer polygon*/
+}
+
+/*.grid tbm resolve*/
+.portfolio .grid {
+    display: grid; /*fazer grades, depende do gap*/
+    gap: 2.5em; /*espacamento do grid*/
+    /*background-color: violet; /*debug*/
+    
+}
+
+@media (min-width: 600px) {
+    .portfolio .grid {
+        grid-template-columns: 240px 240px;
+        justify-content: space-around; /*só funciona com diplay: grid;*/
+        align-content: space-around;
+        height: calc(100vh - 45px - 4.5em);
+    }
+}
+
+@media (min-width: 1000px) {
+    .portfolio .grid {
+        grid-template-columns: 240px 240px 240px; /* ou pode-se usar a função repeat (3, 240px)*/
+        justify-content: space-around; /*só funciona com diplay: grid;*/
+        align-content: space-around;
+        /*height: calc(100vh - 6em - 45px);*/
+        height: calc(100vh - 45px - 6.5em);
+    }
+}
+
+.portfolio figure {
+    text-align: center;
+}
+
+/*imagens do portfolio*/
+.img-portfolio {
+    border-radius: 15%; /*arredondamento da borda*/
+    height: 180px;
+    width: 180px; /*verificar o 100%*/
+    object-fit: cover;
+    object-position: left center;
+    transition: 1s;
+}
+
+.img-portfolio:hover{
+    transform: scale(1.2); /*rotate(960deg);*/
+}
+
+@media (min-width: 600px) {
+    .img-portfolio {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .img-portfolio {
+        height: 180px;
+        width: 180px;
+    }
+}
+
+/*
+.flip-card {
+    perspective: 500px;
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 5s;
+}
+
+
+.flip-card:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-back {
+    background-color: white;
+    color: black;
+    height: 180px;
+    width: 180px;
+    transform: rotateY(180deg);
+}*/
+
+.contato .icons {
+    text-align: center;
+}
+
+.contato a {
+    color: white;
+    font-size: 5em;
+    text-decoration: none;
+    transition: text-shadow 1s;
+
+    /*background-color: violet; debug*/
+}
+
+.contato a:active, /*para funcionar no touch de mobile*/
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: white 0px 0px 10px;
+}
